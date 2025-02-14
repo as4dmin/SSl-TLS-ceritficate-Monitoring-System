@@ -49,8 +49,8 @@ def check_expiration(cert, hostname):
 
 def send_email_notification(subject, message, recipient_email):
     """Send an email notification when an SSL certificate is expiring."""
-    sender_email = "example@gmail.com"		#Enter your email
-    sender_password = "Your-email-password" 	#Enter your email password
+    sender_email = os.getenv("EMAIL_USER")		
+    sender_password = os.getenv("EMAIL_PASS")
 
     if not sender_email or not sender_password:
         print("[ERROR] Email credentials are missing!")
